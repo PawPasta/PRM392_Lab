@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- TIÊU ĐỀ -->
+    <TextView
+        android:text="ỨNG DỤNG ĐẶT MÓN"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#1976D2"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- KHỐI CONTENT (NẰM GIỮA MÀN HÌNH) -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- NÚT CHỌN MÓN -->
+        <Button
+            android:id="@+id/btnFood"
+            android:text="Chọn thức ăn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- NÚT CHỌN ĐỒ UỐNG -->
+        <Button
+            android:id="@+id/btnDrink"
+            android:text="Chọn đồ uống"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- MÓN ĐÃ CHỌN -->
+        <TextView
+            android:id="@+id/txtFood"
+            android:text="Món ăn đã chọn: Chưa chọn"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="12dp"
+            android:background="#EEEEEE"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- ĐỒ UỐNG ĐÃ CHỌN -->
+        <TextView
+            android:id="@+id/txtDrink"
+            android:text="Đồ uống đã chọn: Chưa chọn"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="12dp"
+            android:background="#EEEEEE"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <!-- NÚT EXIT (NẰM DƯỚI CÙNG) -->
+    <Button
+        android:id="@+id/btnExit"
+        android:text="Thoát"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
