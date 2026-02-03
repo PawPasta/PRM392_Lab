@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">SE182138_Lab5</string>
+
+    <string name="label_username">Username: %1$s</string>
+    <string name="label_fullname">Fullname: %1$s</string>
+    <string name="label_email">Email: %1$s</string>
+
+    <string name="cd_add_user">Add user</string>
+    <string name="cd_edit_user">Edit user</string>
+    <string name="cd_user_avatar">User avatar</string>
+
+    <string name="title_manage_users">Manage Users</string>
+    <string name="title_add_user">Add new user</string>
+    <string name="title_edit_user">Update user</string>
+
+    <string name="hint_username">Username</string>
+    <string name="hint_fullname">Fullname</string>
+    <string name="hint_email">Email</string>
+
+    <string name="action_add">Add</string>
+    <string name="action_update">Update</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_back">Back</string>
+
+    <string name="msg_invalid_input">Please enter username, fullname and a valid email.</string>
+    <string name="msg_deleted">Deleted: %1$s</string>
+
+</resources>
