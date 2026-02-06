@@ -2,6 +2,7 @@ package com.pawpasta.se182138_lab4;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -11,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 public class ItemActivity extends AppCompatActivity {
+
+    private static final String TAG = "Lab4/ItemActivity";
 
     ListView listView;
     Button btnOrder;
@@ -28,6 +31,7 @@ public class ItemActivity extends AppCompatActivity {
         items = new ArrayList<>();
 
         String type = getIntent().getStringExtra("type");
+        Log.d(TAG, "onCreate() type=" + type);
 
         if ("food".equals(type)) {
             items.add(new Item(R.drawable.pho, "Phở Hà Nội", "Đặc sản Hà Nội", 40000));
@@ -41,14 +45,18 @@ public class ItemActivity extends AppCompatActivity {
             items.add(new Item(R.drawable.sodakem, "Soda Kem", "Nước ngọt", 20000));
         }
 
+        Log.d(TAG, "Loaded items size=" + items.size());
+
         adapter = new ItemAdapter(this, items);
         listView.setAdapter(adapter);
 
         btnOrder.setOnClickListener(v -> {
             ArrayList<Item> selected = adapter.getSelectedItems();
+            Log.d(TAG, "Click btnOrder -> selectedCount=" + (selected == null ? 0 : selected.size()));
 
-            if (selected.size() == 0) {
+            if (selected == null || selected.isEmpty()) {
                 Toast.makeText(this, "Vui lòng chọn ít nhất 1 món", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "Order blocked: no items selected");
                 return;
             }
 
@@ -59,6 +67,8 @@ public class ItemActivity extends AppCompatActivity {
                 names.append(i.getName()).append(", ");
                 total += i.getPrice();
             }
+
+            Log.d(TAG, "Order confirmed -> total=" + total + ", selectedCount=" + selected.size());
 
             Intent intent = new Intent();
             intent.putExtra("names", names.toString());
