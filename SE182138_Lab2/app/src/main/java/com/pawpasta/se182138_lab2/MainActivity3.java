@@ -38,6 +38,16 @@ public class MainActivity3 extends AppCompatActivity {
         fabBack = findViewById(R.id.fab_back);
         fabForward = findViewById(R.id.fab_forward);
 
+        // Get new user data from sign up
+        Intent intent = getIntent();
+        if (intent.hasExtra("username") && intent.hasExtra("password")) {
+            String newUser = intent.getStringExtra("username");
+            String newPass = intent.getStringExtra("password");
+            users.put(newUser, newPass);
+            username.setText(newUser);
+            password.setText(newPass);
+        }
+
         btnLogin.setOnClickListener(v -> {
             String user = username.getText().toString().trim();
             String pass = password.getText().toString().trim();
@@ -49,14 +59,17 @@ public class MainActivity3 extends AppCompatActivity {
 
             if (users.containsKey(user) && users.get(user).equals(pass)) {
                 Toast.makeText(MainActivity3.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                // Navigate to the main activity on successful login
+                startActivity(new Intent(MainActivity3.this, MainActivity.class));
+                finish(); // Finish LoginActivity so the user can't go back to it
             } else {
                 Toast.makeText(MainActivity3.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
             }
         });
 
         tvSignUp.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity3.this, MainActivity4.class);
-            startActivity(intent);
+            Intent signUpIntent = new Intent(MainActivity3.this, MainActivity4.class);
+            startActivity(signUpIntent);
         });
 
         fabBack.setOnClickListener(v -> {

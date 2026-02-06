@@ -46,6 +46,12 @@ public class MainActivity4 extends AppCompatActivity {
             // In a real app, you would save the user data to a database or other persistent storage.
             // For this example, we'll just show a success message.
             Toast.makeText(MainActivity4.this, "Sign up successful!", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(MainActivity4.this, MainActivity3.class);
+            intent.putExtra("username", user);
+            intent.putExtra("password", pass);
+            startActivity(intent);
+            finish();
         });
 
         fabBack.setOnClickListener(v -> {
